@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashscreen">
+
+    <fragment
+        android:id="@+id/splashscreen"
+        android:name="com.yudha.techtest.ui.views.splashscreen.SplashscreenFragment">
+        <action
+            android:id="@+id/to_genre_list"
+            app:destination="@id/genre_list"
+            app:popUpTo="@id/splashscreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/genre_list"
+        android:name="com.yudha.techtest.ui.views.genrelist.GenreListFragment">
+        <action
+            android:id="@+id/to_movie_list_fragment"
+            app:destination="@id/movie_list_fragment"
+            app:enterAnim="@transition/right_slide"
+            app:exitAnim="@transition/left_out"
+            app:popEnterAnim="@transition/left_slide"
+            app:popExitAnim="@transition/right_out">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_list_fragment"
+        android:name="com.yudha.techtest.ui.views.movielist.MovieListFragment">
+
+        <action
+            android:id="@+id/to_movie_detail"
+            app:destination="@id/movie_detail_fragment"
+            app:enterAnim="@transition/right_slide"
+            app:exitAnim="@transition/left_out"
+            app:popEnterAnim="@transition/left_slide"
+            app:popExitAnim="@transition/right_out">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_detail_fragment"
+        android:name="com.yudha.techtest.ui.views.moviedetail.MovieDetailFragment">
+    </fragment>
+
+</navigation>
