@@ -13,6 +13,7 @@ import com.yudha.techtest.data.model.Movie
 
 import com.yudha.techtest.views.BaseFragment
 import com.yudha.techtest.views.getNavController
+//import com.yudha.techtest.views.getNavController
 import kotlinx.android.synthetic.main.detail_fragment.*
 import org.koin.androidx.viewmodel.compat.ViewModelCompat.viewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

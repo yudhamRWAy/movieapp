@@ -7,20 +7,18 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import com.yudha.techtest.views.BaseViewModel
-//import com.yudha.techtest.base.views.BaseViewModel
 import com.yudha.techtest.data.model.Review
 import com.yudha.techtest.data.model.Trailer
 import com.yudha.techtest.data.remote.response.DetailMovieResponse
-
+import com.yudha.techtest.data.repository.MovieRepository
 import com.yudha.techtest.data.source.MovieDetailDataSource
+import com.yudha.techtest.views.BaseViewModel
 
-import com.yudha.techtest.data.repository.RepoMovie
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class MovieDetailViewModel(
-    private val movieRepository: RepoMovie
+    private val movieRepository: MovieRepository
 ) : BaseViewModel() {
 
     val movieDetail = MutableLiveData<DetailMovieResponse>()

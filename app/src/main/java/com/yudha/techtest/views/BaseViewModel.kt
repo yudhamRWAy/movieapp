@@ -19,7 +19,7 @@ abstract class BaseViewModel : ViewModel() {
     val connectTimeoutEvent by lazy { SingleLiveEvent<Unit>() }
 
     open suspend fun onError(throwable: Throwable) {
-        withContext(Dispatchers.Main) {
+        withContext(Dispatchers.IO) {
             when (throwable) {
                 is UnknownHostException -> {
                     noInternetConnectionEvent.call()

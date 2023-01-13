@@ -14,7 +14,7 @@ data class DetailMovieResponse (
     val vote_average: Double? = null,
     val vote_count: Int? = null,
     val backdrop_path: String? = null
-    ) {
-        fun getBackdropPath() =
-            if (backdrop_path.isNullOrBlank()) null else BuildConfig.BACKDROP_URL + backdrop_path
-    }
+) {
+    fun getBackdropPath() =
+        if (backdrop_path.isNullOrBlank()) null else BuildConfig.BACKDROP_URL + backdrop_path
+}

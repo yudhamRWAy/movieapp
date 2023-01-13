@@ -32,11 +32,13 @@ class GenreListFragment : BaseFragment<GenreListViewModel>() {
             goToMovieList(it)
         }
         rv_genre.adapter = genreAdapter
-        lifecycleScope.launch(Dispatchers.Main) {
+        lifecycleScope.launch(Dispatchers.IO) {
             val genreList = viewModel.getGenreList()
             Timber.d("SETGENRE")
+
             if (genreList != null) {
                 genreAdapter.setData(genreList)
+
             }
         }
         viewModel.genreList.observe(viewLifecycleOwner, {
