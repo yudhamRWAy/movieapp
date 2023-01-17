@@ -1,14 +1,17 @@
 package com.yudha.techtest.views
 
+import android.content.Context
+import android.location.GnssNavigationMessage
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.base.utils.SingleLiveEvent
+import com.yudha.techtest.utils.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
-
+import org.jetbrains.anko.toast
 abstract class BaseViewModel : ViewModel() {
 
     val isLoadMore = MutableLiveData(false)
@@ -19,16 +22,17 @@ abstract class BaseViewModel : ViewModel() {
     val connectTimeoutEvent by lazy { SingleLiveEvent<Unit>() }
 
     open suspend fun onError(throwable: Throwable) {
-        withContext(Dispatchers.IO) {
+        withContext(Dispatchers.Main) {
             when (throwable) {
                 is UnknownHostException -> {
-                    noInternetConnectionEvent.call()
+
+
                 }
                 is ConnectException -> {
-                    noInternetConnectionEvent.call()
+
                 }
                 is SocketTimeoutException -> {
-                    connectTimeoutEvent.call()
+
                 }
             }
             hideLoading()
@@ -36,14 +40,14 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     open fun showError(e: Throwable) {
-        errorMessage.value = e.message
+        errorMessage.postValue(e.message)
     }
 
     fun showLoading() {
-        isLoading.value = true
+        isLoading.postValue(true)
     }
 
     fun hideLoading() {
-        isLoading.value = false
+        isLoading.postValue(false)
     }
 }

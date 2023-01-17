@@ -17,13 +17,19 @@ import com.yudha.techtest.views.getNavController
 import kotlinx.android.synthetic.main.detail_fragment.*
 import org.koin.androidx.viewmodel.compat.ViewModelCompat.viewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.bumptech.glide.load.engine.GlideException
+
+import com.bumptech.glide.request.RequestListener
+
+
+
 
 class MovieDetailFragment : BaseFragment<MovieDetailViewModel>() {
     override val viewModel: MovieDetailViewModel by viewModel()
 
     override fun layoutRes(): Int = R.layout.detail_fragment
 
-//    private val args: MovieDetailFragmentArgs by navArgs()
+    //    private val args: MovieDetailFragmentArgs by navArgs()
     private lateinit var args: Movie
 
     private val reviewAdapter by lazy {
@@ -40,7 +46,15 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>() {
             val rating = it.vote_average?.div(2)
             Glide.with(this)
                 .load(it.getBackdropPath().toString())
+                .error(R.drawable.ic_play)
                 .into(iv_backdrop)
+
+
+
+
+
+
+
             tv_title.text = it.title
             tv_overview.text = it.overview
             tv_genre.text = it.genres?.get(0)?.name ?: ""

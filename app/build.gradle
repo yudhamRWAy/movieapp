@@ -9,6 +9,10 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding true
+    }
+
     compileSdk 33
 
     defaultConfig {
@@ -62,6 +66,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     testImplementation 'junit:junit:4.+'
+    implementation Android.appCompat
+    implementation Android.ktx
+    implementation Coroutines.android
+    implementation Coroutines.core
+
+    implementation Glide.glide
+    kapt Glide.compiler
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation Room.roomKtx
@@ -78,6 +89,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.3.0'
     kapt 'androidx.room:room-compiler:2.3.0'
     implementation 'androidx.room:room-ktx:2.3.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.0'
 
 
     implementation Retrofit.gsonConverter
@@ -91,6 +103,9 @@ dependencies {
     implementation Glide.glide
     kapt Glide.compiler
     implementation Android.timber
+    implementation "org.jetbrains.anko:anko-common:0.8.3"
+    implementation files('libs\\YouTubeAndroidPlayerApi.jar')
+
 
 
 

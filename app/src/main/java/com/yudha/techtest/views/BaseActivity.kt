@@ -1,4 +1,4 @@
-package com.example.base.views
+package com.yudha.techtest.views
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.yudha.techtest.R
+
 import com.yudha.techtest.utils.hideLoading
 import com.yudha.techtest.utils.showLoading
 
