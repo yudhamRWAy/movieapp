@@ -44,9 +44,17 @@ class MovieDetailViewModel(
             runCatching {
                 movieRepository.getTrailerDetail(movieId)
             }.onSuccess {
-                if (it != null) {
-                    trailerKey.value = it.results?.get(0)
-                }
+
+                    try {
+
+                        if (it != null) {
+                            trailerKey.value = it.results?.get(0)
+                        }
+
+                    } catch (e : Exception) {
+                        System.out.println("Something went wrong.");
+                    }
+
             }.onFailure {
                 onError(it)
             }
